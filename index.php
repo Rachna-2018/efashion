@@ -21,10 +21,9 @@ if($method == 'POST')
 			$CITY='0';
 		}
 		$userespnose = array("EACH", "EVERY","ALL");
-		if(in_array($STATE, $userespnose) and $CITY=="")
+		if(in_array($STATE, $userespnose))
 		{
 			$STATE = 'ALL';
-			$CITY = '0';
 		}
 		
 		/*else if (in_array($STATE, $userespnose,TRUE) and in_array($CITY, $userespnose,TRUE) ) 

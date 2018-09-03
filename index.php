@@ -19,17 +19,17 @@ if($method == 'POST')
 		
 		if($CITY=="")
 		{
-			$CITY="0";
+			$CITY='0';
 		}
 		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($STATE, $userespnose))
 		{
-			$STATE = "ALL";
+			$STATE = 'ALL';
 		}
 		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($CITY, $userespnose))
 		{
-			$CITY = "ALL";
+			$CITY = 'ALL';
 		}
 		
 		/*else if (in_array($STATE, $userespnose,TRUE) and in_array($CITY, $userespnose,TRUE) ) 

@@ -19,17 +19,17 @@ if($method == 'POST')
 		
 		if($CITY=="")
 		{
-			$CITY='0';
+			$CITY="0";
 		}
 		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($STATE, $userespnose))
 		{
-			$STATE = 'ALL';
+			$STATE = "ALL";
 		}
 		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($CITY, $userespnose))
 		{
-			$CITY = 'ALL';
+			$CITY = "ALL";
 		}
 		
 		/*else if (in_array($STATE, $userespnose,TRUE) and in_array($CITY, $userespnose,TRUE) ) 
@@ -48,7 +48,7 @@ if($method == 'POST')
 			$CITY = '0';
 		}*/
 		
-		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY";		
+		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE='$STATE'&CITY='$CITY'";		
 		//echo $json_url;
 		$username    = "SANYAM_K";
     		$password    = "Welcome@123";

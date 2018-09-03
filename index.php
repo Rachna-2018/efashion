@@ -10,7 +10,7 @@ if($method == 'POST')
 	$com = strtolower($com);
 	
 		
-	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold') 
+	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist') 
 	{
 		$STATE= $json->queryResult->parameters->STATE;
 		$STATE= strtoupper($STATE);
@@ -47,7 +47,7 @@ if($method == 'POST')
 			$STATE = 'ALL';
 			$CITY = '0';
 		}*/
-		
+					
 		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY";		
 		//echo $json_url;
 		$username    = "SANYAM_K";

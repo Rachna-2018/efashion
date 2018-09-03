@@ -66,7 +66,7 @@ if($method == 'POST')
 			$distext = "Total profit value is of worth $";
 		else if ($com == 'qtysold')
 			$distext = "Total quantity sold of worth $";
-		if($CITY !="")
+		if($CITY !='0')
 		{
 			$discity = " city ";
 		}

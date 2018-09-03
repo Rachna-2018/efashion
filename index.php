@@ -66,9 +66,17 @@ if($method == 'POST')
 			$distext = "Total profit value is of worth $";
 		else if ($com == 'qtysold')
 			$distext = "Total quantity sold of worth $";
+		if($CITY !="")
+		{
+			$discity = " city ";
+		}
+		else
+		{
+			$discity = "";
+		}
 		foreach ($someobj["results"] as $value) 
 		{
-			$speech .= $distext. $value["AMOUNT"]." in ".$value["STATE"];
+			$speech .= $distext. $value["AMOUNT"]." of ".$value["CITY"]." in ".$value["STATE"];
 			$speech .= "\r\n";
 			
 			

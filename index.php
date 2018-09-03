@@ -76,7 +76,7 @@ if($method == 'POST')
 		}
 		foreach ($someobj["results"] as $value) 
 		{
-			$speech .= $distext. $value["AMOUNT"]." of ".$value["CITY"]." in ".$value["STATE"];
+			$speech .= $distext. $value["AMOUNT"]." for ".$value["CITY"]." in ".$value["STATE"];
 			$speech .= "\r\n";
 			
 			

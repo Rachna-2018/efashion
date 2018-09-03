@@ -16,6 +16,7 @@ if($method == 'POST')
 		$STATE= strtoupper($STATE);
 		$CITY= $json->queryResult->parameters->CITY;
 		$CITY= strtoupper($CITY);
+		echo $CITY;
 		if($CITY=="")
 		{
 			$CITY='0';

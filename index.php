@@ -14,6 +14,8 @@ if($method == 'POST')
 	{
 		$STATE= $json->queryResult->parameters->STATE;
 		$STATE= strtoupper($STATE);
+		$CITY= $json->queryResult->parameters->CITY;
+		$CITY= strtoupper($CITY);
 		
 		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($STATE, $userespnose,TRUE) and $CITY=="")

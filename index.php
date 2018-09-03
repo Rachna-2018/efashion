@@ -18,7 +18,7 @@ if($method == 'POST')
 		$CITY= strtoupper($CITY);
 		
 		$userespnose = array("EACH", "EVERY","ALL");
-		if(in_array($STATE, $userespnose,TRUE) and $CITY=="")
+		if(in_array($STATE, $userespnose) and $CITY=="")
 		{
 			$STATE = 'ALL';
 			$CITY = '0';
@@ -39,7 +39,8 @@ if($method == 'POST')
 			$STATE = 'ALL';
 			$CITY = '0';
 		}*/
-		
+		echo $STATE;
+		echo $CITY;
 		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE='$STATE'&CITY='$CITY'";		
 		$username    = "SANYAM_K";
     		$password    = "Welcome@123";

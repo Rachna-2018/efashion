@@ -62,7 +62,7 @@ if($method == 'POST')
     		curl_setopt_array( $ch, $options );
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
-		echo $someobj;
+		
 		if ($com == 'amountsold')
 			$distext = "Total sale value is of worth $";
 		else if($com == 'margin')

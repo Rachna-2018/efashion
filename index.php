@@ -10,16 +10,20 @@ if($method == 'POST')
 	$com = strtolower($com);
 	
 		
-	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist') 
+	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist' or $com=='shopsale') 
 	{
 		$STATE= $json->queryResult->parameters->STATE;
 		$STATE= strtoupper($STATE);
 		$CITY= $json->queryResult->parameters->CITY;
 		$CITY= strtoupper($CITY);
+		/*$SHOPNAME= $json->queryResult->parameters->SHOPNAME;
+		$SHOPNAME= strtoupper($SHOPNAME);
+		$SHOPNAME = str_replace(' ', '', $SHOPNAME);*/
 		$CITY = str_replace(' ', '', $CITY);
-		if($CITY=="")
+		if($CITY=="" )
 		{
 			$CITY='0';
+			
 		}
 		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($STATE, $userespnose))

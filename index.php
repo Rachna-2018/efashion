@@ -62,28 +62,37 @@ if($method == 'POST')
     		curl_setopt_array( $ch, $options );
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
-		
-		if ($com == 'amountsold')
-			$distext = "Total sale value is of worth $";
-		else if($com == 'margin')
-			$distext = "Total profit value is of worth $";
-		else if ($com == 'qtysold')
-			$distext = "Total quantity sold of worth $";
-		if($CITY !='0')
+		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold')
 		{
-			$discity = " for city ";
+			if ($com == 'amountsold')
+				$distext = "Total sale value is of worth $";
+			else if($com == 'margin')
+				$distext = "Total profit value is of worth $";
+			else if ($com == 'qtysold')
+				$distext = "Total quantity sold of worth $";
+			if($CITY !='0')
+			{
+				$discity = " for city ";
+			}
+			else
+			{
+				$discity = "";
+			}
+			foreach ($someobj["results"] as $value) 
+			{
+				$speech .= $distext. $value["AMOUNT"].$discity.$value["CITY"]." in ".$value["STATE"];
+				$speech .= "\r\n";
+			 }
 		}
-		else
+		else if($com == 'shoplist')
 		{
-			$discity = "";
+			foreach ($someobj["results"] as $value) 
+			{
+				$speech .= $value["SHOP_NAME"]." availabe in ".$value["CITY"]." in ".$value["STATE"];
+				$speech .= "\r\n";
+			 }
 		}
-		foreach ($someobj["results"] as $value) 
-		{
-			$speech .= $distext. $value["AMOUNT"].$discity.$value["CITY"]." in ".$value["STATE"];
-			$speech .= "\r\n";
 			
-			
-       		 }
 	}
 	
 	

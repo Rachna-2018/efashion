@@ -68,7 +68,7 @@ if($method == 'POST')
 			$distext = "Total quantity sold of worth $";
 		if($CITY !='0')
 		{
-			$discity = " city ";
+			$discity = " for city ";
 		}
 		else
 		{
@@ -76,7 +76,7 @@ if($method == 'POST')
 		}
 		foreach ($someobj["results"] as $value) 
 		{
-			$speech .= $distext. $value["AMOUNT"]." for ".$value["CITY"]." in ".$value["STATE"];
+			$speech .= $distext. $value["AMOUNT"].$discity.$value["CITY"]." in ".$value["STATE"];
 			$speech .= "\r\n";
 			
 			

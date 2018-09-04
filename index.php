@@ -12,14 +12,20 @@ if($method == 'POST')
 		
 	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist' or $com=='shopsale') 
 	{
-		$STATE= $json->queryResult->parameters->STATE;
+		if(isset($json->queryResult->parameters->STATE))
+		{	$STATE= $json->queryResult->parameters->STATE; } else {$STATE = '0';}
 		$STATE= strtoupper($STATE);
-		$CITY= $json->queryResult->parameters->CITY;
+		if(isset($json->queryResult->parameters->CITY))
+		{	$CITY= $json->queryResult->parameters->CITY; } else {$CITY = '0';}
+		//$CITY= $json->queryResult->parameters->CITY;
 		$CITY= strtoupper($CITY);
-		/*$SHOPNAME= $json->queryResult->parameters->SHOPNAME;
+		if(isset($json->queryResult->parameters->SHOPNAME))
+		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; } else {$SHOPNAME = '0';}
+		//$SHOPNAME= $json->queryResult->parameters->SHOPNAME;
 		$SHOPNAME= strtoupper($SHOPNAME);
-		$SHOPNAME = str_replace(' ', '', $SHOPNAME);*/
+		$SHOPNAME = str_replace(' ', '', $SHOPNAME);
 		$CITY = str_replace(' ', '', $CITY);
+		$STATE = str_replace(' ', '', $STATE);
 		if($CITY=="" )
 		{
 			$CITY='0';
@@ -36,23 +42,7 @@ if($method == 'POST')
 			$CITY = 'ALL';
 		}
 		
-		/*else if (in_array($STATE, $userespnose,TRUE) and in_array($CITY, $userespnose,TRUE) ) 
-		{
-			$STATE = 'ALL'; 
-		 	$CITY='ALL'; 
-		}
-		else if (in_array($STATE, $userespnose,FALSE) and $STATE!="" and in_array($CITY, $userespnose,TRUE))
-		{
-			$CITY = 'ALL';
-			
-		}
-		else if (in_array($STATE, $userespnose,TRUE) and $CITY = ""))
-		{
-			$STATE = 'ALL';
-			$CITY = '0';
-		}*/
-					
-		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY";		
+		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME";		
 		//echo $json_url;
 		$username    = "SANYAM_K";
     		$password    = "Welcome@123";

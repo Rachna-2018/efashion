@@ -21,6 +21,14 @@ if($method == 'POST')
 		$CITY= strtoupper($CITY);
 		if(isset($json->queryResult->parameters->SHOPNAME))
 		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; } else {$SHOPNAME = '0';}
+		if(isset($json->queryResult->parameters->YR))
+		{	$YR= $json->queryResult->parameters->YR; } else {$YR = '0';}
+		
+		if(isset($json->queryResult->parameters->QTR))
+		{	$QTR= $json->queryResult->parameters->QTR; } else {$QTR = '0';}
+		
+		if(isset($json->queryResult->parameters->MTH))
+		{	$MTH= $json->queryResult->parameters->MTH; } else {$MTH = '0';}
 		//$SHOPNAME= $json->queryResult->parameters->SHOPNAME;
 		$SHOPNAME= strtoupper($SHOPNAME);
 		$SHOPNAME = str_replace(' ', '', $SHOPNAME);
@@ -47,7 +55,7 @@ if($method == 'POST')
 			$CITY = 'ALL';
 		}
 		
-		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME";		
+		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH";		
 		//echo $json_url;
 		$username    = "SANYAM_K";
     		$password    = "Welcome@123";

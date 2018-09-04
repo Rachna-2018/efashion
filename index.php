@@ -10,7 +10,7 @@ if($method == 'POST')
 	$com = strtolower($com);
 	
 		
-	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist' or $com=='shopsale') 
+	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist') 
 	{
 		if(isset($json->queryResult->parameters->STATE))
 		{	$STATE= $json->queryResult->parameters->STATE; } else {$STATE = '0';}
@@ -77,9 +77,16 @@ if($method == 'POST')
 			{
 				$discity = "";
 			}
+			if($SHOPNAME != '0')
+			{
+				$disshop = " of shop ";
+			}
+			else
+			{	$disshop = "";	}
+			
 			foreach ($someobj["results"] as $value) 
 			{
-				$speech .= $distext. $value["AMOUNT"].$discity.$value["CITY"]." in ".$value["STATE"];
+				$speech .= $distext. $value["AMOUNT"].$disshop.$discity.$value["CITY"]." in ".$value["STATE"];
 				$speech .= "\r\n";
 			 }
 		}
@@ -91,6 +98,7 @@ if($method == 'POST')
 				$speech .= "\r\n";
 			 }
 		}
+		
 			
 	}
 	

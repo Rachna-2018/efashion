@@ -37,6 +37,11 @@ if($method == 'POST')
 			$STATE = 'ALL';
 		}
 		$userespnose = array("EACH", "EVERY","ALL");
+		if(in_array($SHOPNAME, $userespnose))
+		{
+			$SHOPNAME = 'ALL';
+		}
+		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($CITY, $userespnose))
 		{
 			$CITY = 'ALL';

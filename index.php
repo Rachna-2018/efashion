@@ -21,19 +21,22 @@ if($method == 'POST')
 		$CITY= strtoupper($CITY);
 		if(isset($json->queryResult->parameters->SHOPNAME))
 		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; } else {$SHOPNAME = '0';}
+		$SHOPNAME= strtoupper($SHOPNAME);
 		if(isset($json->queryResult->parameters->YR))
 		{	$YR= $json->queryResult->parameters->YR; } else {$YR = '0';}
-		
+		$YR= strtoupper($YR);
 		if(isset($json->queryResult->parameters->QTR))
 		{	$QTR= $json->queryResult->parameters->QTR; } else {$QTR = '0';}
-		
+		$QTR= strtoupper($QTR);
 		if(isset($json->queryResult->parameters->MTH))
 		{	$MTH= $json->queryResult->parameters->MTH; } else {$MTH = '0';}
-		//$SHOPNAME= $json->queryResult->parameters->SHOPNAME;
-		$SHOPNAME= strtoupper($SHOPNAME);
+		$MTH= strtoupper($MTH);
+		
+		
 		$SHOPNAME = str_replace(' ', '', $SHOPNAME);
 		$CITY = str_replace(' ', '', $CITY);
 		$STATE = str_replace(' ', '', $STATE);
+		
 		if($CITY=="" )
 		{
 			$CITY='0';

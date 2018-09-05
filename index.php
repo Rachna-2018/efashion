@@ -8,16 +8,16 @@ if($method == 'POST')
 	$json = json_decode($requestBody);
 	$com = $json->queryResult->parameters->command;
 	$com = strtolower($com);
-	
+	if(isset($json->queryResult->parameters->statecom))
+	{	$statecom = $json->queryResult->parameters->statecom; } else {$statecom = '0';}
 		
-	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist') 
+	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist' ) 
 	{
 		if(isset($json->queryResult->parameters->STATE))
 		{	$STATE= $json->queryResult->parameters->STATE; } else {$STATE = '0';}
 		$STATE= strtoupper($STATE);
 		if(isset($json->queryResult->parameters->CITY))
 		{	$CITY= $json->queryResult->parameters->CITY; } else {$CITY = '0';}
-		//$CITY= $json->queryResult->parameters->CITY;
 		$CITY= strtoupper($CITY);
 		if(isset($json->queryResult->parameters->SHOPNAME))
 		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; } else {$SHOPNAME = '0';}
@@ -83,6 +83,31 @@ if($method == 'POST')
     		curl_setopt_array( $ch, $options );
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
+		if($someobj[0]==null and $statecom == 'liststates')
+		{
+			$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$statecom&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH";		
+			//echo $json_url;
+			$username    = "SANYAM_K";
+			$password    = "Welcome@123";
+			$ch      = curl_init( $json_url );
+			$options = array(
+			CURLOPT_SSL_VERIFYPEER => false,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_USERPWD        => "{$username}:{$password}",
+			CURLOPT_HTTPHEADER     => array( "Accept: application/json" ),
+			);
+			curl_setopt_array( $ch, $options );
+			$json = curl_exec( $ch );
+			$someobj = json_decode($json,true);
+			$speech = "We don't have data for given state. But you can see data for following states";
+			foreach ($someobj["results"] as $value) 
+			{
+				$speech .= "\r\n";
+				$speech .= $value["STATE"]." - ".$value["SHORT_STATE"]
+				$speech .= "\r\n";
+			}
+		}
+		
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold')
 		{
 			if ($com == 'amountsold')

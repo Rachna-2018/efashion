@@ -83,7 +83,8 @@ if($method == 'POST')
     		curl_setopt_array( $ch, $options );
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
-		if(empty($someobj) and $statecom == 'liststates')
+		echo empty($someobj);
+		/*if(empty($someobj) and $statecom == 'liststates')
 		{
 			$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$statecom&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH";		
 			//echo $json_url;
@@ -106,7 +107,7 @@ if($method == 'POST')
 				$speech .= $value["STATE"]." - ".$value["SHORT_STATE"]
 				$speech .= "\r\n";
 			}
-		}
+		}*/
 		
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold')
 		{

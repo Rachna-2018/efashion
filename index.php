@@ -158,7 +158,7 @@ if($method == 'POST')
 			foreach ($someobj["results"] as $value) 
 			{
 				$speech .= "\r\n";
-				$speech .= $value["STATE"]." - ".$value["SHORT_STATE"]
+				$speech .= $value["STATE"]." - ".$value["SHORT_STATE"];
 				$speech .= "\r\n";
 			}
 			

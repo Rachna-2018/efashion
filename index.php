@@ -84,7 +84,7 @@ if($method == 'POST')
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
 		//echo $someobj["results"];
-		if($someobj["results"]==null and $statecom == 'liststates')
+		if($someobj["results"][0]==null and $statecom == 'liststates')
 		{
 			$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$statecom&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH";		
 			//echo $json_url;

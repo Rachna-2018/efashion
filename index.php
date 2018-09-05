@@ -11,7 +11,7 @@ if($method == 'POST')
 	if(isset($json->queryResult->parameters->statecom))
 	{	$statecom = $json->queryResult->parameters->statecom; } else {$statecom = '0';}
 		
-	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist' ) 
+	if ($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $com=='shoplist' or $com == 'liststates' ) 
 	{
 		if(isset($json->queryResult->parameters->STATE))
 		{	$STATE= $json->queryResult->parameters->STATE; } else {$STATE = '0';}
@@ -84,11 +84,7 @@ if($method == 'POST')
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
 		//echo $someobj["results"];
-	foreach ($someobj["results"] as $value)
-	{
-		$chk= empty($value);
-	}
-		echo $chk;
+	
 		/*if($value==null and $statecom == 'liststates')
 		{
 			$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$statecom&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH";		
@@ -155,6 +151,18 @@ if($method == 'POST')
 				$speech .= $value["SHOP_NAME"]." availabe in ".$value["CITY"]." in ".$value["STATE"];
 				$speech .= "\r\n";
 			 }
+		}
+		else if ($com == 'liststates')
+		{
+			$speech = "We don't have data for given state. But you can see data for following states";
+			foreach ($someobj["results"] as $value) 
+			{
+				$speech .= "\r\n";
+				$speech .= $value["STATE"]." - ".$value["SHORT_STATE"]
+				$speech .= "\r\n";
+			}
+			
+			
 		}
 		
 			

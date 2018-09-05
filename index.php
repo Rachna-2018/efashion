@@ -86,8 +86,9 @@ if($method == 'POST')
 		//echo $someobj["results"];
 	foreach ($someobj["results"] as $value)
 	{
-		echo $value;
+		$chk= empty($value);
 	}
+		echo $chk;
 		/*if($value==null and $statecom == 'liststates')
 		{
 			$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$statecom&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH";		

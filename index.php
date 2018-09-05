@@ -143,6 +143,9 @@ if($method == 'POST')
 				$speech .= $distext. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"]." in ".$value["STATE"].$disyear.$value["YR"].$disqtr.$value["QTR"];
 				$speech .= "\r\n";
 			 }
+			$speech .= "I can drill down on next level";
+			$speech .= "\r\n";
+			
 		}
 		else if($com == 'shoplist')
 		{

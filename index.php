@@ -154,14 +154,15 @@ if($method == 'POST')
 		}
 		else if ($com == 'liststates')
 		{
-			$speech = "We don't have data for given state. But you can see data for following states";
+			$speech = "You can see values for following states";
+			$speech .= "\r\n";
 			foreach ($someobj["results"] as $value) 
 			{
-				$speech .= "\r\n";
+				
 				$speech .= $value["STATE"]." - ".$value["SHORT_STATE"];
 				$speech .= "\r\n";
 			}
-			
+			$speech .= "Which would you prefer?";
 			
 		}
 		

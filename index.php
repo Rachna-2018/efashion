@@ -59,6 +59,11 @@ if($method == 'POST')
 		{
 			$YR = 'ALL';
 		}
+		$userespnose = array("EACH", "EVERY","ALL");
+		if(in_array($QTR, $userespnose))
+		{
+			$QTR = 'ALL';
+		}
 		
 		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH";		
 		//echo $json_url;
@@ -100,9 +105,11 @@ if($method == 'POST')
 			if($YR != '0')
 			{
 				$disyear = " for year ";} else {$disyear = "";}
+			if($QTR != '0')
+			{	$disqtr = " for quarter "; } else { $disqtr = ""; }
 			foreach ($someobj["results"] as $value) 
 			{
-				$speech .= $distext. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"]." in ".$value["STATE"].$disyear.$value["YR"];
+				$speech .= $distext. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"]." in ".$value["STATE"].$disyear.$value["YR"].$disqtr.$value["QTR"];
 				$speech .= "\r\n";
 			 }
 		}

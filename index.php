@@ -37,9 +37,10 @@ if($method == 'POST')
 		$CITY = str_replace(' ', '', $CITY);
 		$STATE = str_replace(' ', '', $STATE);
 		
-		if($CITY=="" )
+		if($CITY=="" && $SHOPNAME == "" )
 		{
 			$CITY='0';
+			$SHOPNAME = '0';
 			
 		}
 		$userespnose = array("EACH", "EVERY","ALL");

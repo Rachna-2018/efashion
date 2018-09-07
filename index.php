@@ -128,7 +128,7 @@ if($method == 'POST')
 				$speech .= $distext. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"].$disstate.$value["STATE"].$disyear.$value["YR"].$disfamily.$value["FAMILY_NAME"].$discategory.$value["CATEGORY"].$disarticle.$value["ARTICLE_LABEL"];
 				$speech .= "\r\n";
 			 }
-			if($speech != "") { $speech .= "I can drill down further\n";}
+			//if($speech != "") { $speech .= "I can drill down further\n";}
 		}
 		else if($com == 'shoplist')
 		{

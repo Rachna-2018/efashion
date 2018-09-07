@@ -124,6 +124,14 @@ if($method == 'POST')
 			{
 				$discity = "";
 			}
+			if($STATE !='0')
+			{
+				$disstate = " in state ";
+			}
+			else
+			{
+				$disstate = "";
+			}
 			if($FAMILY !='0')
 			{
 				$disfamily = " for family ";
